@@ -80,10 +80,10 @@ def add_kernel(
     :param conda-path: path to a Conda environment
     :param conda-name: name of a Conda environment
     :param venv: path to a Python virtual environment
-    :param container: path to a Singularity container
+    :param container: path to a Apptainer ( expect it to be installed at OS level )
     :param container_args: additional parameters for 'singularity exec' command
     :param shared: share the kernel with other members of your NeSI project
-    :param account: NeSI account for a shared kernel, instead of current job's
+    :param group: BMRC group for a shared kernel, instead of current job's
     """
 
     incompatible_options = conda_path, conda_name, venv, container
@@ -96,14 +96,14 @@ def add_kernel(
     # path to kernel directory
     if shared:
         if account is None:
-            account = os.getenv("SLURM_JOB_ACCOUNT", os.getenv("JUPYTER_JOB_ACCOUNT"))
+            account = os.getenv("SLURM_JOB_ACCOUNT", os.getenv("SLURM_JOB_ACCOUNT"))
             if account is None:
                 sys.exit(
                     "ERROR: cannot determine project to share kernel with, try "
                     "running within a Jupyter terminal or use the --account option"
                 )
-        print(f"Creating shared kernel for {account}")
-        prefix_dir = Path(f"/nesi/project/{account}/.jupyter")
+        print(f"Creating shared kernel for {group}")
+        prefix_dir = Path(f"/well/{group}/projects/archive/.jupyter")
         kernel_dir = prefix_dir / "share/jupyter/kernels/" / kernel_name
     else:
         kernel_dir = Path.home() / ".local/share/jupyter/kernels/" / kernel_name
