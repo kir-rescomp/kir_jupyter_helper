@@ -82,7 +82,7 @@ def add_kernel(
     :param venv: path to a Python virtual environment
     :param container: path to a Apptainer ( expect it to be installed at OS level )
     :param container_args: additional parameters for 'singularity exec' command
-    :param shared: share the kernel with other members of your NeSI project
+    :param shared: share the kernel with other members of your group
     :param group: BMRC group for a shared kernel, instead of current job's
     """
 
@@ -95,13 +95,16 @@ def add_kernel(
 
     # path to kernel directory
     if shared:
-        if account is None:
-            account = os.getenv("SLURM_JOB_ACCOUNT", os.getenv("SLURM_JOB_ACCOUNT"))
-            if account is None:
+        if group is None:
+            try:
+                group = subprocess.run(
+                    ["id", "-gn"], capture_output=True, check=True, text=True
+                ).stdout.strip()
+            except subprocess.CalledProcessError:
                 sys.exit(
-                    "ERROR: cannot determine project to share kernel with, try "
-                    "running within a Jupyter terminal or use the --account option"
+                    "ERROR: cannot determine group, use the --group option"
                 )
+
         print(f"Creating shared kernel for {group}")
         prefix_dir = Path(f"/well/{group}/projects/archive/.jupyter")
         kernel_dir = prefix_dir / "share/jupyter/kernels/" / kernel_name
@@ -136,7 +139,7 @@ def add_kernel(
         if shared:
             print(
                 "Make sure your conda environment is accessible to members of "
-                f"{account}"
+                f"{group}"
             )
         exec_txt = CONDA_TEMPLATE.format(conda_venv=conda_name)
 
@@ -144,7 +147,7 @@ def add_kernel(
         if shared:
             print(
                 "Make sure your conda environment is accessible to members of "
-                f"{account}"
+                f"{group}"
             )
         conda_path = conda_path.resolve()
         if not conda_path.is_dir():
@@ -159,7 +162,7 @@ def add_kernel(
         if shared:
             print(
                 "Make sure your virtual environment is accessible to members of "
-                f"{account}"
+                f"{group}"
             )
         venv = venv.resolve()
         if not venv.is_dir():
@@ -184,7 +187,7 @@ def add_kernel(
     elif container is not None:
         container = container.resolve()
         if shared:
-            print("Make sure your container is accessible to members of {account}")
+            print("Make sure your container is accessible to members of {group}")
         if not container.is_file():
             sys.exit(
                 f"ERROR: --container ({container}) should point to a Singularity "
