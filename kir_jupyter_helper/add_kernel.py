@@ -52,13 +52,13 @@ exec python $@
 """
 
 CONTAINER_TEMPLATE = """\
-module load Singularity
+# this template is based on the assumption apptainer is installed at system level
 
 # isolate container interpreter from user's site-packages directory
-export SINGULARITYENV_PYTHONNOUSERSITE=True
+export APPTAINERENV_PYTHONNOUSERSITE=True
 
 # run the kernel inside the container
-exec singularity exec -B {runtime_dir} {container_args} {container} python $@
+exec apptainer exec -B {runtime_dir} {container_args} {container} python $@
 """
 
 
