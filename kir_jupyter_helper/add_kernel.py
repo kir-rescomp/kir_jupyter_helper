@@ -180,7 +180,7 @@ def add_kernel(
                 "for your virtual environment."
             )
 
-    # ...or a Singularity container...
+    # ...or an Apptainer container...
     elif container is not None:
         container = container.resolve()
         if shared:
@@ -288,6 +288,6 @@ def main():
             "venv": "v",
             "shared": "s",
             "container": "c",
-            "account": "a",
+            "group": "g",
         },
     )
