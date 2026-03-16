@@ -25,12 +25,8 @@ module purge
 """
 
 CONDA_TEMPLATE = """\
-# load Conda on Mahuika or Maui
-if hostname | grep -q "maui"; then
-    module load Anaconda3
-else
-    module load Miniconda3
-fi
+# load Conda on BMRC
+module load Miniforge3
 
 # isolate conda environment from user's site-packages directory
 export PYTHONNOUSERSITE=True
