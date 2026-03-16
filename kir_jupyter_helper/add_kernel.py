@@ -73,10 +73,10 @@ def add_kernel(
     shared: bool = False,
     account: T.Optional[str] = None,
 ):
-    """Register a new jupyter kernel, with a wrapper script to load NeSI modules
+    """Register a new jupyter kernel, with a wrapper script to load BMRC modules
 
     :param kernel_name: Jupyter kernel name
-    :param module: NeSI module(s) to load before running the kernel
+    :param module: BMRC module(s) to load before running the kernel
     :param conda-path: path to a Conda environment
     :param conda-name: name of a Conda environment
     :param venv: path to a Python virtual environment
