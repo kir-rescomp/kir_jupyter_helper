@@ -77,11 +77,11 @@ def add_kernel(
 
     :param kernel_name: Jupyter kernel name
     :param module: BMRC module(s) to load before running the kernel
-    :param conda-path: path to a Conda environment
-    :param conda-name: name of a Conda environment
+    :param conda_path: path to a Conda environment
+    :param conda_name: name of a Conda environment
     :param venv: path to a Python virtual environment
     :param container: path to a Apptainer ( expect it to be installed at OS level )
-    :param container_args: additional parameters for 'singularity exec' command
+    :param container_args: additional parameters for 'apptainer exec' command
     :param shared: share the kernel with other members of your group
     :param group: BMRC group for a shared kernel, instead of current job's
     """
@@ -294,3 +294,6 @@ def main():
             "group": "g",
         },
     )
+
+if __name__ == "__main__":
+    main()
