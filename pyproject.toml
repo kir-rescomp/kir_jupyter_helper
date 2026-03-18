@@ -1,6 +1,6 @@
 [project]
-name = "kir-jupyter-helpers"
-version = "0.1.0"
+name = "kir_jupyter_helper"
+version = "0.2.0"
 authors = [
     {name = "Dinindu Senanayake"},
 ]
@@ -16,7 +16,7 @@ dependencies = [
 dev = ["black", "flake8", "pytest", "nbformat", "nbconvert"]
 
 [project.scripts]
-kir-add-kernel = "kir_jupyter_helpers.add_kernel:main"
+kir-add-kernel = "kir_jupyter_helper.add_kernel:main"
 
 [build-system]
 requires = ["hatchling"]
