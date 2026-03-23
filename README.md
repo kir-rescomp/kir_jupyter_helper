@@ -63,3 +63,26 @@ options:
                         BMRC group for a shared kernel, instead of current job's
                         (default: None)
 ```
+
+### Example : Creating a kernel for a Python virtual environment
+
+1. Load `JupyterLab/4.5.6-GCCcore-12.3.0` module which contains `kir-add-kernel`. Otherwise,
+   you can instal it to an existing base Jupyter environment 
+
+    ```bash
+    $ module load JupyterLab/4.5.6-GCCcore-12.3.0
+    ```
+
+2. Create the kernel as 
+
+    ```bash
+    $ kir-add-kernel --venv /path/to/root/directoru/of/venv Python-module
+    ```
+    - Let's say you have Python virtual enviornment call `Singlecell_venv` and the path to the environment is `/users/group/myname/devel/Singlecell_venv` and it was bult with `Python/3.11.3-GCCcore-12.3.0`, then the kernel can be built with 
+    
+    ```bash
+    $ kir-add-kernel --venv /users/group/myname/devel/Singlecell_venv Python/3.11.3-      GCCcore-12.3.0 
+    ```
+
+
+
