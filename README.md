@@ -76,12 +76,28 @@ options:
 2. Create the kernel as 
 
     ```bash
-    $ kir-add-kernel --venv /path/to/root/directoru/of/venv Python-module
+    $ kir-add-kernel display-name-for-the-kernel Python-module --venv /path/to/root/directoru/of/venv
     ```
-    - Let's say you have Python virtual enviornment call `Singlecell_venv` and the path to the environment is `/users/group/myname/devel/Singlecell_venv` and it was bult with `Python/3.11.3-GCCcore-12.3.0`, then the kernel can be built with 
+    - Let's say you have Python virtual enviornment call `Singlecell_venv` and the path to the environment is `/users/group/myname/devel/Singlecell_venv` 
+      and it was bult with `Python/3.11.3-GCCcore-12.3.0`, then the kernel can be built with following command where the display name is `singlecell'
+       
+    ```bash
+    $ kir-add-kernel singlecell Python/3.11.3-GCCcore-12.3.0 --venv /users/group/myname/devel/Singlecell_venv 
+    ```
+    - Expected output
     
     ```bash
-    $ kir-add-kernel --venv /users/group/myname/devel/Singlecell_venv Python/3.11.3-      GCCcore-12.3.0 
+    $ kir-add-kernel singlecell  Python/3.11.3-GCCcore-12.3.0 --venv /users/group/myname/devel/Singlecell_venv
+    Testing wrapper script
+    Checking & installing ipykernel package in the kernel environment
+    Installing kernel: python -m ipykernel install --name singlecell --user
+    Installed kernelspec singlecell_venv in /users/group/myname/.local/share/jupyter/kernels/singlecell
+    Added wrapper script in /users/group/myname/.local/share/jupyter/kernels/singlecell/wrapper.bash
+    Updated kernel JSON file /users/group/myname/.local/share/jupyter/kernels/singlecell/kernel.json
+
+    Use the following command to remove the kernel:
+
+    jupyter-kernelspec remove singlecell
     ```
 
 
