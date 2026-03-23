@@ -12,3 +12,19 @@ Primary tool of this is `kir-add-kernel`which solves a common frustration on HPC
 
 Instead, `kir-add-kernel` registers a lightweight wrapper script as the kernel. The wrapper loads your environment via the module system, conda, venv, or Apptainer — and delegates to 
 the `ipykernel` that ships with the cluster's JupyterLab module. Your environment stays untouched.
+
+### How does it work ?
+
+<p align="center">
+    <img src="./img/kernel_wrapper_architecture.svg" alt="kernel-wrapper"  width="800"/>
+</p>
+
+Normally, registering a Jupyter kernel requires installing `ipykernel` directly into each environment.
+On a shared cluster this is problematic — `ipykernel` pulls in a large dependency tree that can silently
+upgrade or downgrade other packages, undermining the reproducibility of your analysis environment.
+`kir-jupyter-helper/kir-add-kernel` takes a different approach. It registers a small bash wrapper script
+as the kernel instead. When JupyterLab launches the kernel, the wrapper activates your environment
+(via modules, conda, venv, or Apptainer) and then delegates to the `ipykernel` that already ships with the
+cluster's `JupyterLab` module. Your environment is never modified.
+
+An additional benefit is shared kernels: a single registration under your group's `shared` directory makes the kernel available to all group members without each person having to set anything up.

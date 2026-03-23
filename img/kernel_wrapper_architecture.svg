@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="680"
+   viewBox="0 0 680 480"
+   font-family="sans-serif"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="kernel_wrapper_architecture.svg"
+   inkscape:version="1.4.3 (1:1.4.3+202512261034+0d15f75042)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview31"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.6729167"
+     inkscape:cx="339.82565"
+     inkscape:cy="240"
+     inkscape:window-width="1875"
+     inkscape:window-height="1011"
+     inkscape:window-x="280"
+     inkscape:window-y="1472"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg31" />
+  <defs
+     id="defs1">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M2 1L8 5L2 9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path1" />
+    </marker>
+    <style
+       id="style1">
+    text { font-family: sans-serif; fill: #1a1a1a; }
+    .th  { font-size: 14px; font-weight: 500; }
+    .ts  { font-size: 12px; font-weight: 400; fill: #555; }
+    .arr { stroke: #888; stroke-width: 1.5; fill: none; }
+    .c-purple rect { fill: #EEEDFE; stroke: #534AB7; }
+    .c-purple text { fill: #3C3489; }
+    .c-gray   rect { fill: #F1EFE8; stroke: #5F5E5A; }
+    .c-gray   text { fill: #2C2C2A; }
+    .c-coral  rect { fill: #FAECE7; stroke: #993C1D; }
+    .c-coral  text { fill: #4A1B0C; }
+    .c-teal   rect { fill: #E1F5EE; stroke: #0F6E56; }
+    .c-teal   text { fill: #04342C; }
+    .c-green  rect { fill: #EAF3DE; stroke: #3B6D11; }
+    .c-green  text { fill: #173404; }
+    .warn-box { fill: #FFF8E1; stroke: #F9A825; stroke-width: 0.5; }
+    .warn-txt { fill: #E65100; font-size: 12px; font-family: sans-serif; }
+    .ok-box   { fill: #F1F8E9; stroke: #558B2F; stroke-width: 0.5; }
+    .ok-txt   { fill: #1B5E20; font-size: 12px; font-family: sans-serif; }
+    .note-box { fill: none; stroke: #bbb; stroke-width: 0.8; stroke-dasharray: 5 3; }
+    .note-txt { fill: #444; font-size: 12px; font-family: sans-serif; }
+    .note-hd  { fill: #1a1a1a; font-size: 14px; font-weight: 500; font-family: sans-serif; }
+    .divider  { stroke: #ccc; stroke-width: 1; stroke-dasharray: 4 4; }
+    .lbl      { font-size: 11px; fill: #777; font-family: sans-serif; }
+  </style>
+  </defs>
+  <!-- Background -->
+  <rect
+     width="680"
+     height="480"
+     fill="#ffffff"
+     id="rect1" />
+  <!-- Column titles -->
+  <text
+     class="th"
+     x="170"
+     y="28"
+     text-anchor="middle"
+     id="text1">Traditional approach</text>
+  <text
+     class="th"
+     x="510"
+     y="28"
+     text-anchor="middle"
+     id="text2">kir-jupyter-helper/kir-add-kernel</text>
+  <!-- Centre divider -->
+  <line
+     x1="340"
+     y1="10"
+     x2="340"
+     y2="470"
+     class="divider"
+     id="line2" />
+  <!-- ===== LEFT SIDE ===== -->
+  <!-- JupyterLab -->
+  <g
+     class="c-purple"
+     id="g3">
+    <rect
+       x="80"
+       y="44"
+       width="180"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       id="rect2" />
+    <text
+       class="th"
+       x="170"
+       y="72"
+       text-anchor="middle"
+       id="text3">JupyterLab</text>
+  </g>
+  <line
+     x1="170"
+     y1="88"
+     x2="170"
+     y2="118"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line3" />
+  <!-- Kernel selector -->
+  <g
+     class="c-gray"
+     id="g4">
+    <rect
+       x="90"
+       y="118"
+       width="160"
+       height="40"
+       rx="8"
+       stroke-width="0.5"
+       id="rect3" />
+    <text
+       class="th"
+       x="170"
+       y="143"
+       text-anchor="middle"
+       id="text4">Select kernel</text>
+  </g>
+  <line
+     x1="140"
+     y1="158"
+     x2="100"
+     y2="188"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line4" />
+  <line
+     x1="200"
+     y1="158"
+     x2="250"
+     y2="188"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line5" />
+  <!-- Env A -->
+  <g
+     class="c-coral"
+     id="g6">
+    <rect
+       x="40"
+       y="188"
+       width="120"
+       height="56"
+       rx="8"
+       stroke-width="0.5"
+       id="rect5" />
+    <text
+       class="th"
+       x="100"
+       y="210"
+       text-anchor="middle"
+       id="text5">conda env A</text>
+    <text
+       class="ts"
+       x="100"
+       y="230"
+       text-anchor="middle"
+       id="text6">+ ipykernel ⚠</text>
+  </g>
+  <!-- Env B -->
+  <g
+     class="c-coral"
+     id="g8">
+    <rect
+       x="190"
+       y="188"
+       width="120"
+       height="56"
+       rx="8"
+       stroke-width="0.5"
+       id="rect6" />
+    <text
+       class="th"
+       x="250"
+       y="210"
+       text-anchor="middle"
+       id="text7">venv B</text>
+    <text
+       class="ts"
+       x="250"
+       y="230"
+       text-anchor="middle"
+       id="text8">+ ipykernel ⚠</text>
+  </g>
+  <!-- Warning note -->
+  <rect
+     x="50"
+     y="264"
+     width="250"
+     height="52"
+     rx="8"
+     class="warn-box"
+     id="rect8" />
+  <text
+     class="warn-txt"
+     x="175"
+     y="285"
+     text-anchor="middle"
+     id="text9">ipykernel installs may upgrade</text>
+  <text
+     class="warn-txt"
+     x="175"
+     y="302"
+     text-anchor="middle"
+     id="text10">or downgrade pinned packages</text>
+  <!-- Per-user note -->
+  <rect
+     x="46"
+     y="348"
+     width="268"
+     height="96"
+     rx="10"
+     class="note-box"
+     id="rect10" />
+  <text
+     class="note-hd"
+     x="180"
+     y="372"
+     text-anchor="middle"
+     id="text11">Per-user install required</text>
+  <text
+     class="note-txt"
+     x="180"
+     y="394"
+     text-anchor="middle"
+     id="text12">Every user must install</text>
+  <text
+     class="note-txt"
+     x="180"
+     y="412"
+     text-anchor="middle"
+     id="text13">ipykernel in each env</text>
+  <text
+     class="note-txt"
+     x="180"
+     y="430"
+     text-anchor="middle"
+     id="text14">before registering a kernel</text>
+  <!-- ===== RIGHT SIDE ===== -->
+  <!-- JupyterLab -->
+  <g
+     class="c-purple"
+     id="g15">
+    <rect
+       x="420"
+       y="44"
+       width="180"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       id="rect14" />
+    <text
+       class="th"
+       x="510"
+       y="72"
+       text-anchor="middle"
+       id="text15">JupyterLab</text>
+  </g>
+  <text
+     class="lbl"
+     x="510"
+     y="98"
+     text-anchor="middle"
+     id="text16">(ships ipykernel and kir-add-kernel)</text>
+  <line
+     x1="510"
+     y1="104"
+     x2="510"
+     y2="130"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line16" />
+  <!-- Wrapper script -->
+  <g
+     class="c-teal"
+     id="g18">
+    <rect
+       x="420"
+       y="130"
+       width="180"
+       height="56"
+       rx="8"
+       stroke-width="0.5"
+       id="rect16" />
+    <text
+       class="th"
+       x="510"
+       y="152"
+       text-anchor="middle"
+       id="text17">Wrapper script</text>
+    <text
+       class="ts"
+       x="510"
+       y="172"
+       text-anchor="middle"
+       id="text18">registered as kernel</text>
+  </g>
+  <line
+     x1="486"
+     y1="216"
+     x2="430"
+     y2="215"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line18" />
+  <line
+     x1="510"
+     y1="186"
+     x2="510"
+     y2="215"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line19" />
+  <line
+     x1="534"
+     y1="216"
+     x2="575"
+     y2="215"
+     class="arr"
+     marker-end="url(#arrow)"
+     id="line20" />
+  <!-- EasyBuild module -->
+  <g
+     class="c-green"
+     id="g21">
+    <rect
+       x="358"
+       y="216"
+       width="100"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       id="rect20" />
+    <text
+       class="th"
+       x="408"
+       y="234"
+       text-anchor="middle"
+       id="text20">Python</text>
+    <text
+       class="ts"
+       x="408"
+       y="250"
+       text-anchor="middle"
+       id="text21">venv</text>
+  </g>
+  <!-- conda env -->
+  <g
+     class="c-green"
+     id="g23">
+    <rect
+       x="468"
+       y="216"
+       width="84"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       id="rect21" />
+    <text
+       class="th"
+       x="510"
+       y="234"
+       text-anchor="middle"
+       id="text22">conda</text>
+    <text
+       class="ts"
+       x="510"
+       y="250"
+       text-anchor="middle"
+       id="text23">env</text>
+  </g>
+  <!-- venv / SIF -->
+  <g
+     class="c-green"
+     id="g25">
+    <rect
+       x="562"
+       y="216"
+       width="72"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       id="rect23" />
+    <text
+       class="th"
+       x="598"
+       y="234"
+       text-anchor="middle"
+       id="text24">Apptainer</text>
+    <text
+       class="ts"
+       x="598"
+       y="250"
+       text-anchor="middle"
+       id="text25">SIF</text>
+  </g>
+  <!-- Success note -->
+  <rect
+     x="358"
+     y="278"
+     width="276"
+     height="52"
+     rx="8"
+     class="ok-box"
+     id="rect25" />
+  <text
+     class="ok-txt"
+     x="496"
+     y="299"
+     text-anchor="middle"
+     id="text26">Environments/Containers stay untouched —</text>
+  <text
+     class="ok-txt"
+     x="496"
+     y="316"
+     text-anchor="middle"
+     id="text27">no package conflicts</text>
+  <!-- Shared kernels note -->
+  <rect
+     x="358"
+     y="348"
+     width="276"
+     height="96"
+     rx="10"
+     class="note-box"
+     id="rect27" />
+  <text
+     class="note-hd"
+     x="496"
+     y="372"
+     text-anchor="middle"
+     id="text28">Shared kernels</text>
+  <text
+     class="note-txt"
+     x="496"
+     y="394"
+     text-anchor="middle"
+     id="text29">Register once under</text>
+  <text
+     class="note-txt"
+     x="496"
+     y="412"
+     text-anchor="middle"
+     id="text30">/well/{group}/projects/shared/.jupyter</text>
+  <text
+     class="note-txt"
+     x="496"
+     y="430"
+     text-anchor="middle"
+     id="text31">available to whole group</text>
+</svg>
