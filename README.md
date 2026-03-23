@@ -78,12 +78,18 @@ options:
     ```bash
     $ kir-add-kernel display-name-for-the-kernel Python-module --venv /path/to/root/directoru/of/venv
     ```
-    - Let's say you have Python virtual enviornment call `Singlecell_venv` and the path to the environment is `/users/group/myname/devel/Singlecell_venv` 
-      and it was bult with `Python/3.11.3-GCCcore-12.3.0`, then the kernel can be built with following command where the display name is `singlecell'
-       
+    - Let's say you have a Python virtual enviornment 
+        - named  `Singlecell_venv`
+        - path to the environment is `/users/group/myname/devel/Singlecell_venv` 
+        - it was bult with `Python/3.11.3-GCCcore-12.3.0`,
+        - preferred display name for the kernel in Jupyterlab is `singlecell`
+
+    then the kernel can be built with,
+    
     ```bash
     $ kir-add-kernel singlecell Python/3.11.3-GCCcore-12.3.0 --venv /users/group/myname/devel/Singlecell_venv 
     ```
+
     - Expected output
     
     ```bash
