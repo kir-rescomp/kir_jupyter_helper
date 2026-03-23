@@ -81,7 +81,7 @@ options:
     - Let's say you have Python virtual enviornment call `Singlecell_venv` and the path to the environment is `/users/group/myname/devel/Singlecell_venv` and it was bult with `Python/3.11.3-GCCcore-12.3.0`, then the kernel can be built with 
     
     ```bash
-    $ kir-add-kernel --venv /users/group/myname/devel/Singlecell_venv Python/3.11.3-      GCCcore-12.3.0 
+    $ kir-add-kernel --venv /users/group/myname/devel/Singlecell_venv Python/3.11.3-GCCcore-12.3.0 
     ```
 
 
