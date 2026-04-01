@@ -231,21 +231,42 @@ def add_kernel(
         )
 
     print("Checking & installing ipykernel package in the kernel environment")
-    try:
-        subprocess.run(
-            [wrapper_script, "-m", "pip", "install", "ipykernel"],
-            check=True,
-            capture_output=True,
-            universal_newlines=True,
-        )
-    except subprocess.CalledProcessError as exc:
-        print(exc.stdout)
-        print(exc.stderr)
-        wrapper_script.unlink()
-        sys.exit(
-            "ERROR: the ipykernel package could not be installed in the kernel "
-            "environment"
-        )
+
+    # first attempt: pip (standard venvs, conda)
+    pip_result = subprocess.run(
+        [wrapper_script, "-m", "pip", "install", "ipykernel"],
+        capture_output=True,
+        universal_newlines=True,
+    )
+
+    if pip_result.returncode != 0:
+        # fallback: uv pip (for venvs created with uv which ship without pip)
+        if venv is not None:
+            print("pip not available, retrying with uv pip...")
+            try:
+                subprocess.run(
+                    ["uv", "pip", "install", "--python", str(venv), "ipykernel"],
+                    check=True,
+                    capture_output=True,
+                    universal_newlines=True,
+                )
+            except subprocess.CalledProcessError as exc:
+                print(exc.stdout)
+                print(exc.stderr)
+                wrapper_script.unlink()
+                sys.exit(
+                    "ERROR: the ipykernel package could not be installed in the kernel "
+                    "environment via pip or uv pip"
+                )
+        else:
+            print(pip_result.stdout)
+            print(pip_result.stderr)
+            wrapper_script.unlink()
+            sys.exit(
+                "ERROR: the ipykernel package could not be installed in the kernel "
+                "environment"
+            )
+
 
     # create a new kernel
     cmdargs = ["python", "-m", "ipykernel", "install", "--name", kernel_name]
