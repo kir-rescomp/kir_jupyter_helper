@@ -73,7 +73,7 @@ options:
     $ module load JupyterLab/4.5.6-GCCcore-12.3.0
     ```
 
-2. Create the kernel as 
+2. Create the kernel with,  
 
     ```bash
     $ kir-add-kernel display-name-for-the-kernel Python-module --venv /path/to/root/directoru/of/venv
